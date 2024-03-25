@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ControllerService } from '../services/controller.service';
+import { ControllerService } from '../../services/controller.service';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html'
+  // styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit
+export class UserListComponent implements OnInit
 {
   
   constructor(private controller: ControllerService)

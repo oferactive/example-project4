@@ -1,0 +1,42 @@
+<h1 id="tableLabel">User Record</h1>
+
+<p *ngIf="!Selected"><em>Loading...</em></p>
+
+<ng-container *ngIf="Selected">
+
+<h3>User {{ Selected.name }}</h3>
+<table>
+    <tr>
+        <th>Name:</th>
+        <td>{{ Selected.name }}</td>
+    </tr>
+    <tr>
+        <th>E-Mail Address</th>
+        <td>{{ Selected.email }}</td>
+    </tr>
+</table>
+    
+<table >
+    <thead>
+        <tr>
+            <th></th>
+            <!-- <th>Id</th> -->
+            <th>Policy Number</th>
+            <th>Insurance Amount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of List">
+            <td><button (click)="Delete( record)">Delete</button> </td>
+            <!-- <td>{{ record.id }}</td> -->
+            <td>{{ record.policyNumber }}</td>
+            <td>{{ record.insuranceAmount | number : '1.2' }}</td>
+            <td>{{ record.startDate | date : 'dd/MM/yyyy' }}</td>
+            <td>{{ record.endDate | date : 'dd/MM/yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+</ng-container>

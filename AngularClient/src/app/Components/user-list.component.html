@@ -1,0 +1,30 @@
+<h1 id="tableLabel">User List</h1>
+
+<p *ngIf="UserList.length == 0"><em>Loading...</em></p>
+
+<table *ngIf="UserList.length > 0">
+    <thead>
+        <tr>
+            <th></th>
+            <!-- <th>ID</th> -->
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of UserList">
+            <td></td>
+            <!-- <td> 
+                <a [routerLink]="['/user/' + user.id]">
+                    {{ user.id }}
+                </a>
+            </td> -->
+            <td>
+                <a [routerLink]="['/user/' + user.id]">
+                    {{ user.name }}
+                </a>
+            </td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </tbody>
+</table>

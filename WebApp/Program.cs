@@ -8,12 +8,30 @@ namespace WebApp
 {
     public class Program
     {
+        const string CORSPolicyName = "ActiveInfoCORSPolicy";
+
         public static void Main(string[] args)
         {
+
 
             UpdateDatabase();
 
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    name: CORSPolicyName,
+                    builder =>
+                    {
+                        builder
+                            .AllowAnyOrigin()
+                            // .WithOrigins( "http://localhost:4200")
+                            .SetIsOriginAllowed((host) => true)
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
 
             // Add services to the container.
             builder.Services.AddApplicationServices();
@@ -23,6 +41,8 @@ namespace WebApp
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -31,6 +51,8 @@ namespace WebApp
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors();
 
             app.UseAuthorization();
 

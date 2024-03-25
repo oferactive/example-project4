@@ -8,7 +8,7 @@ namespace DataModel.Repositories
 {
     public interface IInsurancePolicyRepository: IBaseRepository<InsurancePolicy>
     {
-        DBActionResponse<InsurancePolicy> GetPoliciesForUser(Guid? UserId);
+        DBActionResponse<InsurancePolicy> GetInsuranePoliciesForUser(KeyRequest userId);
         
     }
 }

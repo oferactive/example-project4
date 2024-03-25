@@ -26,7 +26,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public DBActionResponse<TRecord> Get( Guid Id)
+        public DBActionResponse<TRecord> Get(KeyRequest Id)
         {
             return _repository.Get( Id);
         }
@@ -45,7 +45,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public DBActionResponse<TRecord> Delete(Guid key)
+        public DBActionResponse<TRecord> Delete(KeyRequest key)
         {
             return _repository.Delete( key);
         }

@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+th, td
+{
+    border: 1px solid darkgray;
+    padding: 0.25rem 0.5rem;
+    text-align: start;
+}
+
+table 
+{
+    border-spacing: 0;
+    margin-top: 0.75rem;
+}
+
+th
+{
+    background-color: azure;
+}
+
+td
+{
+
+}
