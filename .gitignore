@@ -7,3 +7,6 @@
 /WebApp/obj
 /WebApp/bin/Debug/net8.0
 /DataModel/bin/Debug
+/AngularClient/.vscode
+/AngularClient/obj/Debug
+/AngularClient/package-lock.json
