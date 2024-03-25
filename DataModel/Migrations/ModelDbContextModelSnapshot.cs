@@ -17,7 +17,7 @@ namespace DataModel.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
 
-            modelBuilder.Entity("DataModel.InusrancePolicy", b =>
+            modelBuilder.Entity("DataModel.InsurancePolicy", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace DataModel.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("InusrancePolicies");
+                    b.ToTable("InusrancePolicies", (string)null);
                 });
 
             modelBuilder.Entity("DataModel.User", b =>
@@ -62,10 +62,10 @@ namespace DataModel.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("DataModel.InusrancePolicy", b =>
+            modelBuilder.Entity("DataModel.InsurancePolicy", b =>
                 {
                     b.HasOne("DataModel.User", "User")
                         .WithMany()

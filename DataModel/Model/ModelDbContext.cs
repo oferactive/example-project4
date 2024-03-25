@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using DataModel.Model;
 
 namespace DataModel
 {
@@ -8,7 +9,7 @@ namespace DataModel
     public class ModelDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<InusrancePolicy> InusrancePolicies { get; set; }
+        public DbSet<InsurancePolicy> InusrancePolicies { get; set; }
 
         public string DbPath { get; }
 

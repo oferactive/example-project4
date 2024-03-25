@@ -1,5 +1,7 @@
 
 using DataModel;
+using DataModel.Demo_Data;
+using DataModel.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApp
@@ -14,6 +16,7 @@ namespace WebApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddApplicationServices();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,14 +26,13 @@ namespace WebApp
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if ( app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
@@ -44,12 +46,10 @@ namespace WebApp
                 ModelDbContext db = new ModelDbContext();
                 db.Database.Migrate();
 
+                Add_Demo_Data demo = new Add_Demo_Data();
+                demo.Execute();
 
-                User x = new User();
-                x.Name = "First 1";
-                db.Add(x);
-                db.SaveChanges();
-                
+
             }
             catch (Exception ex)
             {

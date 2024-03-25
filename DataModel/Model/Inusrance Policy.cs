@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DataModel.Model;
 
 namespace DataModel
 {
-    public class InusrancePolicy: BaseRecord
+    public class InsurancePolicy: BaseRecord
     {
         public string PolicyNumber { get; set; }
         public double? InsuranceAmount{ get; set; }

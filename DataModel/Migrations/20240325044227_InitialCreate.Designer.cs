@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataModel.Migrations
 {
     [DbContext(typeof(ModelDbContext))]
-    [Migration("20240325041533_InitialCreate")]
+    [Migration("20240325044227_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace DataModel.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
 
-            modelBuilder.Entity("DataModel.InusrancePolicy", b =>
+            modelBuilder.Entity("DataModel.InsurancePolicy", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace DataModel.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DataModel.InusrancePolicy", b =>
+            modelBuilder.Entity("DataModel.InsurancePolicy", b =>
                 {
                     b.HasOne("DataModel.User", "User")
                         .WithMany()
