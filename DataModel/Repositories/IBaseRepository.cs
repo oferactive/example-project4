@@ -9,11 +9,11 @@ namespace DataModel.Repositories
     public interface IBaseRepository<TRecord>
         where TRecord: BaseRecord
     {
-        DBActionResponse<TRecord> Get(Guid Id);
+        DBActionResponse<TRecord> Get(Guid? Id);
         DBActionResponse<TRecord> Save(TRecord record);
         DBActionResponse<TRecord> Insert(TRecord record);
         DBActionResponse<TRecord> GetAll();
-        DBActionResponse<TRecord> Delete(Guid Id);
+        DBActionResponse<TRecord> Delete(Guid? Id);
 
     }
 }

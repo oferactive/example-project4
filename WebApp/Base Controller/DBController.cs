@@ -26,28 +26,28 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Get( Guid Id)
+        public DBActionResponse<TRecord> Get( Guid Id)
         {
-            return null;
+            return _repository.Get( Id);
         }
 
         [HttpPost]
-        public ActionResult Post( TRecord record)
+        public DBActionResponse<TRecord> Post( TRecord record)
         {
-            return null;
+            return _repository.Insert( record);
         }
 
 
         [HttpPost]
-        public ActionResult Put(TRecord record)
+        public DBActionResponse<TRecord> Put(TRecord record)
         {
-            return null;
+            return _repository.Save(record);
         }
 
         [HttpPost]
-        public ActionResult Delete(Guid? key)
+        public DBActionResponse<TRecord> Delete(Guid key)
         {
-            return null;
+            return _repository.Delete( key);
         }
 
     }

@@ -12,6 +12,7 @@ namespace DataModel
         Failed = 2,
         Error = 3,
         RecordNotFound = 4,
+        RecordkKeyNotProvided = 5,
         UserNotAuthorized = 10,
     }
 }

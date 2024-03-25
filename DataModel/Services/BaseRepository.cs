@@ -24,9 +24,14 @@ namespace DataModel.Services
         { 
             DB = new ModelDbContext();
         }
-        public virtual DBActionResponse<TRecord> Get(Guid Id)
+        public virtual DBActionResponse<TRecord> Get(Guid? Id)
         {
             var result = CreateResult();
+            if (!Id.HasValue)
+            {
+                result.Result = DBActionResult.RecordkKeyNotProvided;
+                return result;
+            }
             TRecord record = DB.Find<TRecord>(Id);
             if (record != null)
             {
@@ -73,9 +78,14 @@ namespace DataModel.Services
             return result;
         }
 
-        public virtual DBActionResponse<TRecord> Delete(Guid Id)
+        public virtual DBActionResponse<TRecord> Delete(Guid? Id)
         {
             var result = CreateResult();
+            if ( !Id.HasValue)
+            {
+                result.Result = DBActionResult.RecordkKeyNotProvided;
+                return result;
+            }
             TRecord record = DB.Find<TRecord>(Id);
             if (record != null)
             {
