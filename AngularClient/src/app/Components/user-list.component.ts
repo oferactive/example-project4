@@ -10,7 +10,9 @@ import { User } from '../../data-model/DataModel';
 })
 export class UserListComponent implements OnInit
 {
-  
+
+  InsertRecord = false;
+
   constructor(private controller: ControllerService)
   { }
 

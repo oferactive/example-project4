@@ -17,7 +17,7 @@ namespace DataModel
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath( folder);
-            DbPath = System.IO.Path.Join(path, "SampleProject4.db");
+            DbPath = System.IO.Path.Join(path, "ExampleProject4.db");
         }
 
         // The following configures EF to create a Sqlite database file in the

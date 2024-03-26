@@ -52,6 +52,7 @@ namespace DataModel.Services
             result.List = DB.InusrancePolicies
                 .AsNoTracking()
                 .Where( x => x.UserId == userId.Id)
+                .OrderByDescending( x => x.StartDate )
                 .ToList();
             result.Result = DBActionResult.Success;
             return result;

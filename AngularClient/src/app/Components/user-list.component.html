@@ -16,20 +16,33 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of UserList">
-                <td><button (click)="Delete( user)">Delete</button></td>
-                <!-- <td> 
-                    <a [routerLink]="['/user/' + user.id]">
-                        {{ user.id }}
-                    </a>
-                </td> -->
-                <td>
-                    <a [routerLink]="['/user/' + user.id]">
-                        {{ user.name }}
-                    </a>
-                </td>
-                <td>{{ user.email }}</td>
-            </tr>
+          <tr *ngFor="let user of UserList">
+            <td><button (click)="Delete( user)">Delete</button></td>
+            <!-- <td>
+        <a [routerLink]="['/user/' + user.id]">
+            {{ user.id }}
+        </a>
+    </td> -->
+            <td>
+              <a [routerLink]="['/user/' + user.id]">
+                {{ user.name }}
+              </a>
+            </td>
+            <td>{{ user.email }}</td>
+          </tr>
+          <tr>
+            <ng-container *ngIf="!InsertRecord">
+              <td colspan="3">
+                <button (click)="InsertRecord = true">Insert</button>
+              </td>
+            </ng-container>
+            <ng-container *ngIf="InsertRecord">
+              <td colspan="3">
+                <app-user-edit (OnCancel)="InsertRecord = false">
+                </app-user-edit>
+              </td>
+            </ng-container>
+          </tr>
         </tbody>
     </table>
 </ng-container>

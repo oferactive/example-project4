@@ -209,3 +209,9 @@ app-insurance-policy button
 {
     background-color: white;
 }
+
+.text-danger
+{
+    color: red;
+    font-size: 0.8rem;
+}

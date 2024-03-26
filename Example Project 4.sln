@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "DataModel\Data
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AngularClient", "AngularClient\AngularClient.esproj", "{A5A58BD4-A70E-4CDB-B22B-428AFF1190B3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Descriptions", "Descriptions", "{497E7384-395B-44C6-8E0F-E37764A56F20}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
