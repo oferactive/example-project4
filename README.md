@@ -31,7 +31,7 @@ In the src/services directory, there are loaders for each controller, again,
 The Loaders are Initiated by the ControllerService because they are part of the service. 
 
 Execution:
-The Solution Can be executed by defining to run the both the AngularClient and the WebApp.
+The Solution Can be executed by defining to run both the AngularClient and the WebApp.
 When starting the AngularClient for the first time, It will start to download libraries into
 	the node_modules directory and a message will be displayed.
 The WebApp will create the Database and try to add Demo Data, 
