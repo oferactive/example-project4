@@ -1,20 +1,32 @@
-<h1 id="tableLabel">User Record</h1>
+<span class="page-header">User {{ Selected.name }}</span>
 
 <p *ngIf="!Selected"><em>Loading...</em></p>
 
 <ng-container *ngIf="Selected">
 
-<h3>User {{ Selected.name }}</h3>
-<table>
-    <tr>
-        <th>Name:</th>
-        <td>{{ Selected.name }}</td>
-    </tr>
-    <tr>
-        <th>E-Mail Address</th>
-        <td>{{ Selected.email }}</td>
-    </tr>
-</table>
+
+<span class="user-list-link"><a [routerLink]="[ '/']">Back To User List</a></span>
+
+<ng-container *ngIf="!Selected.IsVisible">
+    <div class="form-group">
+        <label>Name:</label>
+        <div class="form-control">{{ Selected.name }}</div>
+    </div>
+    <div class="form-group">
+        <label>E-Mail Address</label>
+        <div class="form-control">{{ Selected.email }}</div>
+    </div>
+    <div class="form-group">
+        <button (click)="Selected.IsVisible = true">Edit</button>
+        <button (click)="DeleteUser()">Delete</button>
+    </div>
+
+</ng-container>
+<ng-container *ngIf="Selected.IsVisible">
+    <app-user-edit [Record]="Selected"></app-user-edit>
+</ng-container>
+
+<app-insurance-policy-filter></app-insurance-policy-filter>
     
 <table >
     <thead>
@@ -28,15 +40,43 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let record of List">
-            <td>
-                <button (click)="Edit( record)">Edit</button>
-                <button (click)="Delete( record)">Delete</button> </td>
-            <!-- <td>{{ record.id }}</td> -->
-            <td>{{ record.policyNumber }}</td>
-            <td>{{ record.insuranceAmount | number : '1.2' }}</td>
-            <td>{{ record.startDate | date : 'dd/MM/yyyy' }}</td>
-            <td>{{ record.endDate | date : 'dd/MM/yyyy'}}</td>
+        <ng-container *ngFor="let record of List">
+            <tr>
+                <td>
+                    <ng-container *ngIf="!record.IsVisible">
+                        <button (click)="record.IsVisible = true">Edit</button>
+                        <button (click)="Delete( record)">Delete</button> 
+                    </ng-container>
+                </td>
+                <!-- <td>{{ record.id }}</td> -->
+                <td>{{ record.policyNumber }}</td>
+                <td>{{ record.insuranceAmount | number : '1.2' }}</td>
+                <td>{{ record.startDate | date : 'dd/MM/yyyy' }}</td>
+                <td>{{ record.endDate | date : 'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr *ngIf="record.IsVisible">
+                <td colspan="5">
+                    <app-insurance-policy 
+                        [User]="Selected"
+                        [Record]="record">
+                    </app-insurance-policy>
+                </td>
+            </tr>
+        </ng-container>
+        <tr>
+            <ng-container *ngIf="!InsertRecord">
+                <td colspan="5">
+                    <button (click)="InsertRecord = true">Insert</button>
+                </td>
+            </ng-container>
+            <ng-container *ngIf="InsertRecord">
+                <td colspan="5">
+                    <app-insurance-policy 
+                        [User]="Selected"
+                        (OnCancel)="InsertRecord = false">
+                    </app-insurance-policy>
+                </td>
+            </ng-container>
         </tr>
     </tbody>
 </table>

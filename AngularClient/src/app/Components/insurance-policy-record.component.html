@@ -1,42 +1,49 @@
-<h1 id="tableLabel">User Record</h1>
 
-<p *ngIf="!Selected"><em>Loading...</em></p>
-
-<ng-container *ngIf="Selected">
-
-<h3>User {{ Selected.name }}</h3>
-<table>
-    <tr>
-        <th>Name:</th>
-        <td>{{ Selected.name }}</td>
-    </tr>
-    <tr>
-        <th>E-Mail Address</th>
-        <td>{{ Selected.email }}</td>
-    </tr>
-</table>
-    
-<table >
-    <thead>
-        <tr>
-            <th></th>
-            <!-- <th>Id</th> -->
-            <th>Policy Number</th>
-            <th>Insurance Amount</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let record of List">
-            <td><button (click)="Delete( record)">Delete</button> </td>
-            <!-- <td>{{ record.id }}</td> -->
-            <td>{{ record.policyNumber }}</td>
-            <td>{{ record.insuranceAmount | number : '1.2' }}</td>
-            <td>{{ record.startDate | date : 'dd/MM/yyyy' }}</td>
-            <td>{{ record.endDate | date : 'dd/MM/yyyy'}}</td>
-        </tr>
-    </tbody>
-</table>
-
-</ng-container>
+<div [formGroup]="Form" class="">
+    <div class="form-group">
+        <label for="policyNumber">Policy Number</label>
+        <input type="number" 
+            class="form-control" 
+            id="policyNumber" 
+            formControlName="policyNumber">
+        <div *ngIf="Form.controls['policyNumber']?.touched && Form.controls['policyNumber']?.invalid" class="text-danger">
+            Policy Number Is Required
+        </div>            
+        <!-- <ng-container *ngIf="IsNewRecord">
+            <div class="form-control"></div>
+        </ng-container>
+        <ng-container *ngIf="!IsNewRecord">
+            <input type="number" 
+                class="form-control" 
+                id="policyNumber" 
+                formControlName="policyNumber">
+        </ng-container> -->
+    </div>
+    <div class="form-group">
+        <label for="insuranceAmount">Insurance Amount</label>
+        <input type="number" class="form-control" id="insuranceAmount" formControlName="insuranceAmount">
+        <div *ngIf="Form.controls['insuranceAmount']?.touched && Form.controls['insuranceAmount']?.invalid" class="text-danger">
+            insurance Amount Is Required
+        </div>            
+    </div>
+    <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" class="form-control" id="startDate" formControlName="startDate">
+        <div *ngIf="Form.controls['startDate']?.touched && Form.controls['startDate']?.invalid" class="text-danger">
+            Start Date Is Required
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" class="form-control" id="endDate" formControlName="endDate">
+        <div *ngIf="Form.controls['endDate']?.touched && Form.controls['endDate']?.invalid" class="text-danger">
+            End Date Is Required
+        </div> 
+    </div>
+    <button class="btn btn-primary" (click)="Save()" 
+            [class.disbaled]="ValidForm ? null : true">
+        Submit
+    </button>
+    <button class="btn btn-secondary" (click)="Cancel()">Cancel</button>
+    <!-- <button type="reset" class="btn btn-secondary">Cancel</button> -->
+</div>

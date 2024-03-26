@@ -66,6 +66,8 @@ export class BaseDataLoader<TRecord extends BaseRecord>
 
     const result = new Subject<DBActionResponse<TRecord>>();
 
+    console.info( "Calling " + url);
+
     this.client.post<DBActionResponse<TRecord>>( url, data, { headers: this.headers })
       .subscribe(
         (values: DBActionResponse<TRecord>) =>

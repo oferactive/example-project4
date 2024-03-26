@@ -19,6 +19,10 @@ namespace DataModel.Services
         {
         }
 
+        public virtual void BeforeDelete(TRecord record)
+        {
+        }
+
         public virtual DBActionResponse<TRecord> CreateResult()
         {
             DBActionResponse<TRecord> result = new DBActionResponse<TRecord>();
@@ -96,6 +100,7 @@ namespace DataModel.Services
             TRecord record = DB.Find<TRecord>(Id.Id);
             if (record != null)
             {
+                BeforeDelete(record);
                 DB.Set<TRecord>().Remove(record);
                 DB.SaveChanges();
                 result.Result = DBActionResult.Success;

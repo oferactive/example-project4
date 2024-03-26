@@ -9,22 +9,31 @@ import { UserListComponent } from './Components/user-list.component';
 import { UserRecordComponent } from './Components/user-record.component';
 import { ToastaModule } from 'ngx-toasta';
 import { InsurancePolicyComponent } from './Components/insurance-policy-record.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { InsurancePolicyFilterComponent } from './Components/insurance-policy-filter.component';
+import { UserEditComponent } from './Components/user-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserRecordComponent,
-    InsurancePolicyComponent
+    InsurancePolicyComponent,
+    InsurancePolicyFilterComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ToastaModule
+    ToastaModule.forRoot()
   ],
   providers: [
-    ControllerService
+    ControllerService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

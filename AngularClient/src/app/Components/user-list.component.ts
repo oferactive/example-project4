@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ControllerService } from '../../services/controller.service';
+import { User } from '../../data-model/DataModel';
 
 
 @Component({
@@ -25,4 +26,9 @@ export class UserListComponent implements OnInit
 
 
   title = 'AngularClient';
+
+  Delete( record: User)
+  {
+    this.controller.DeleteUser( record);
+  }
 }

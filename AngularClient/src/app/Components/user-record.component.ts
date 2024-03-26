@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ControllerService } from '../../services/controller.service';
-import { ActivatedRoute } from '@angular/router';
-import { InsurancePolicy } from '../../data-model/DataModel';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DBActionResult, InsurancePolicy } from '../../data-model/DataModel';
 
 
 @Component({
@@ -13,11 +13,12 @@ export class UserRecordComponent implements OnInit
 {
   id: string;
 
+  InsertRecord = false;
+
   get Selected()
   {
     return this.controller.SelectedUser;
   } 
-
   
   get List()
   {
@@ -26,7 +27,8 @@ export class UserRecordComponent implements OnInit
 
 
   constructor(private controller: ControllerService,
-    private route: ActivatedRoute)
+    private route: ActivatedRoute,
+    private router: Router)
   { 
 
   }
@@ -46,4 +48,21 @@ export class UserRecordComponent implements OnInit
   {
     this.controller.SelectInsurancePolicy( record);
   }
+
+  DeleteUser()
+  {
+    const result = this.controller.DeleteUser( this.Selected);
+    if ( result)
+    {
+      result.subscribe( data =>
+        {
+          if ( data.result == DBActionResult.Success)
+          {
+              this.router.navigate([ "/" ]);
+          }
+        });
+    
+      }
+  }
+
 }

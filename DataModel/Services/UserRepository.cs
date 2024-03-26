@@ -23,5 +23,13 @@ namespace DataModel.Services
             target.Name  = source.Name;
             target.Email = source.Email;
         }
+
+        public override void BeforeDelete(User record)
+        {
+            InsurancePolicyRepository.DeleteInsurancePoliciesForUser(new KeyRequest()
+            {
+                Id = record.ID
+            });
+        }
     }
 }

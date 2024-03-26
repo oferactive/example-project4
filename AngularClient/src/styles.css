@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+.title,
 th, td
 {
-    border: 1px solid darkgray;
     padding: 0.25rem 0.5rem;
     text-align: start;
 }
+
+th, td
+{
+    border: 1px solid darkgray;
+}
+
 
 table 
 {
@@ -13,12 +20,192 @@ table
     margin-top: 0.75rem;
 }
 
-th
+th, .title, .header
 {
     background-color: azure;
+}
+.header
+{
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.title
+{
+    padding: 0.5rem 1rem;
+    display: inline-block;
 }
 
 td
 {
 
+}
+
+.user-list-link
+{
+    display: block;
+    margin: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: peru !important;
+    text-align: start;
+}
+
+button
+{
+    border: 1px solid blueviolet;
+    color: blueviolet;
+    background-color: transparent;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    margin: 0.15rem 0.35rem;
+
+}
+
+button:hover
+{
+    background-color: whitesmoke;
+}
+
+app-insurance-policy-filter
+{
+    display: block;
+    text-align: start;
+    margin: 1rem 0;
+}
+
+html, body 
+{ 
+    height: 100%; 
+}
+
+body 
+{ 
+    margin: 0 3rem; 
+    font-family: Roboto, 
+    "Helvetica Neue", sans-serif; 
+}
+
+.d-inline-block
+{
+    display: inline-block !important;
+}
+
+
+.d-block
+{
+    display: block !important;
+}
+
+.flex-row
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+}
+
+.flex-row > *
+{
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+app-root,
+.flex-column
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+}
+
+
+.flex-column > *,
+app-root > *
+{
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+
+.panel-row
+{
+    flex-shrink: 0;
+}
+
+.flex-panel
+{
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+
+app-insurance-policy-filter .title
+{
+    min-width: 5rem;
+
+}
+
+@media Screen and (max-width: 800px) 
+{
+    body 
+    { 
+        margin: 0 1rem; 
+    }
+}
+
+.page-header
+{
+    text-align: center;
+    display: block;
+    color: blueviolet;
+    background-color: aliceblue;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.application-header
+{
+    text-align: center;
+    display: block;
+    color: blueviolet;
+    /* background-color: aliceblue; */
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.form-group
+{
+    display: table-row;
+    margin-top: 0.5rem;
+}
+
+label, .form-control
+{
+    display: table-cell;
+    margin: 0.25rem 0.5rem;
+}
+
+label
+{
+    font-size: 0.9rem;
+}
+
+.form-control
+{
+    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+}
+
+app-user-edit,  
+app-insurance-policy
+{
+    background-color: #f9ffff;
+    display: block;
+}
+
+app-user-edit button,  
+app-insurance-policy button
+{
+    background-color: white;
 }

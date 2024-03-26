@@ -8,6 +8,6 @@ namespace DataModel.Model
         public string Name { get; set; }
         public string Email { get; set; }
         [InverseProperty( "User")]
-        public ICollection<InsurancePolicy> InsurancePolicyList { get; set; }
+        public ICollection<InsurancePolicy>? InsurancePolicyList { get; set; }
     }
 }

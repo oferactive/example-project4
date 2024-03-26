@@ -6,20 +6,17 @@ import { FormGroup } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-insurance-policy',
-  templateUrl: './insurance-policy-record.component.html'
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html'
   // styleUrl: './app.component.css'
 })
-export class InsurancePolicyComponent implements OnInit
+export class UserEditComponent implements OnInit
 {
   id: string;
   Form: FormGroup;
-  
-  @Input()
-  Record: InsurancePolicy;
 
   @Input()
-  User: User;
+  Record: User;
 
   @Output()
   OnCancel = new EventEmitter();
@@ -48,7 +45,7 @@ export class InsurancePolicyComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.Form = this.controller.BuildInsurancePolicyForm( this.Record);  
+    this.Form = this.controller.BuildUserForm( this.Record);  
   }
 
   Cancel()
@@ -67,10 +64,9 @@ export class InsurancePolicyComponent implements OnInit
     {
       return;
     }
-    this.controller.SaveInsurancePolicy( 
-      this.User,
+    this.controller.SaveUser( 
       this.Record, 
-      this.Form.value as InsurancePolicy)
+      this.Form.value as User)
       .subscribe( data =>
         {
           if ( data.result == DBActionResult.Success)
@@ -86,6 +82,4 @@ export class InsurancePolicyComponent implements OnInit
           }
         })
   }
-
-
 }
